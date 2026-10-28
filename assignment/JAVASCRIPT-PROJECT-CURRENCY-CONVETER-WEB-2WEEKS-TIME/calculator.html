@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assignment/JAVASCRIPT-PROJECT-CURRENCY-CONVETER-WEB-2WEEKS-TIME/calculator.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calc-wrap">
+  <div class="calc" role="application" aria-label="Calculator">
+    <div class="calc-title">✦ Calculator ✦</div>
+
+    <div class="display" aria-live="polite">
+      <div class="display-expr" id="expr"></div>
+      <div class="display-main" id="main">0</div>
+    </div>
+
+    <div class="btn-grid">
+      <button class="btn btn-clear" onclick="calcAC()">AC</button>
+      <button class="btn btn-del" onclick="calcDel()">⌫</button>
+      <button class="btn btn-pct" onclick="calcPct()">%</button>
+      <button class="btn btn-op" onclick="calcOp('÷')">÷</button>
+
+      <button class="btn btn-num" onclick="calcNum('7')">7</button>
+      <button class="btn btn-num" onclick="calcNum('8')">8</button>
+      <button class="btn btn-num" onclick="calcNum('9')">9</button>
+      <button class="btn btn-op" onclick="calcOp('×')">×</button>
+
+      <button class="btn btn-num" onclick="calcNum('4')">4</button>
+      <button class="btn btn-num" onclick="calcNum('5')">5</button>
+      <button class="btn btn-num" onclick="calcNum('6')">6</button>
+      <button class="btn btn-op" onclick="calcOp('−')">−</button>
+
+      <button class="btn btn-num" onclick="calcNum('1')">1</button>
+      <button class="btn btn-num" onclick="calcNum('2')">2</button>
+      <button class="btn btn-num" onclick="calcNum('3')">3</button>
+      <button class="btn btn-op" onclick="calcOp('+')">+</button>
+
+      <button class="btn btn-num btn-zero" onclick="calcNum('0')">0</button>
+      <button class="btn btn-num" onclick="calcDot()">.</button>
+      <button class="btn btn-eq" onclick="calcEq()">=</button>
+    </div>
+  </div>
+</div>
+<script src="/assignment/JAVASCRIPT-PROJECT-CURRENCY-CONVETER-WEB-2WEEKS-TIME/calculator.js"></script>
+</body>
+</html>

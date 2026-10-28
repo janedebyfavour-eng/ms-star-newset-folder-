@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter — STARBOSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+   <button class="mode-toggle" onclick="toggleMode()"
+   id="modeBtn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentcolour"
+stroke-width="2">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+></svg></button>
+
+<div class="page">
+
+    <div class="left-panel">
+        <div class="badge">
+        <div class="badge-dot"></div>
+        live exchange rates
+    </div>
+
+    <h1 class="hero-title">Currency <br> <span>converter</span></h1>
+    <p class="hero-sub">Real-time conversions powered by live mid-market rates. Fast, accurate, and always up to date.</p>
+
+  <div class="stats">
+      <div class="stat">
+     <div class="stat-num">170+</div>
+        <div class="stat-label">Currencies</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">Live</div>
+        <div class="stat-label">Rates</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+            <div class="stat-num">Free</div>
+            <div class="stat-label">Always</div>
+        </div>
+       </div>
+
+       <div class="currency-pills">
+        <div class="pill"><span class="pill-flag">NG</span>NGN</div>
+       </div>
+
+       <div class="pill"><span class="pill-flag">US</span>USA</div>
+
+       <div class="pill"><span class="pill-flag">EU</span>EUR</div>
+
+         <div class="pill"><span class="pill-flag">GB</span>GBP</div>
+         <div class="pill"><span class="pill-flag">JP</span>JPY</div>
+
+           <div class="pill"><span class="pill-flag">CA</span>CAD</div>
+          </div>
+
+          <div class="profile">
+            <div class="avatar">
+                <div class="avatar-ring"></div>
+                SB
+               </div>
+               <div>
+               <div class="profile-name">
+                StarBoss
+               </div>
+               <div class="profile-email">odikanmesoma@email.com</div>
+             </div>
+            </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="card">
+                <div class="card-header">
+            <div class="card-title">convert</div>
+            <div class="card-icon"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
+          </svg></div>
+          </div>
+
+          <!-- Amount -->
+           <div class="amount-group">
+            <div class="field-label">Amount</div>
+            <div class="amount-input-wrap">
+                <input type="number" id="amount" placeholder="1, 000" min="0" step="any"
+                onkeydown="if(event.key==='Enter')
+                convertCurrency()">
+            </div>
+           </div>
+           <!-- currency row -->
+            <div class="currency-row">
+            <div>
+                <div class="field-label">From</div>
+            <div class="select-wrap">
+                <select id="fromcurrency">
+                    <option value="USD">US USD</option>
+                    <option value="NGN">NG NGN</option>
+                    <option value="EUR">EU EUR</option>
+                    <option value="GBP">GB GBP</option>
+                    <option value="CAD">CA CAD</option>
+                    <option value="JPY">JP JPY</option>
+                    <option value="AUD">AU AUD</option>
+                    <option value="CHF">CH CHF</option>
+                    <option value="GHS">GH GHS</option>
+                    <option value="ZAR">ZA ZAR</option>
+                    <option value="CNY">CN CNY</option>
+                    <option value="INR">IN INR</option>
+                </select>
+                <span class="select-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </span>
+                </div>
+                </div>
+
+                <button class="swap-btn" id="swapBtn"
+                onclick="swapcurrencies()" title="swap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
+          </svg>
+                </button>
+
+                <div>
+                <div class="field-label">TO</div>
+                <div class="select-wrap">
+                     <select id="toCurrency">
+              <option value="NGN">🇳🇬 NGN</option>
+              <option value="USD">🇺🇸 USD</option>
+              <option value="EUR">🇪🇺 EUR</option>
+              <option value="GBP">🇬🇧 GBP</option>
+              <option value="CAD">🇨🇦 CAD</option>
+              <option value="JPY">🇯🇵 JPY</option>
+              <option value="AUD">🇦🇺 AUD</option>
+              <option value="CHF">🇨🇭 CHF</option>
+              <option value="GHS">🇬🇭 GHS</option>
+              <option value="ZAR">🇿🇦 ZAR</option>
+              <option value="CNY">🇨🇳 CNY</option>
+              <option value="INR">🇮🇳 INR</option>
+            </select>
+            <span class="select-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <button class="convert-btn" onclick="convertCurrency()"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 8v4l3 3"/>
+        </svg>Convert Now</button>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            Fetching live rates...
+        </div>
+
+        <div class="error-msg" id="errorMsg">
+            ⚠️ could not fetch exchange rates. Check your connection and try again.
+        </div>
+        <div class="result-box" id="result">
+        <div class="result-converted" id="resultconverted"></div>
+        <div class="result-original" id="resultOriginal"></div>
+        <div class="divider"></div>
+        <div class="result-meta">
+            <div class="meta-item">
+                <div class="meta-label">Rate</div>
+                <div class="meta-value" id="rateDisplay">—</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">inverse</div>
+                    <div class="meta-value" id="inverseDisplay">—</div>    
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Updated</div>
+                        <div class="meta-value" id="timeDisplay">—</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Source</div>
+                            <div class="meta-value">ExchangeRate API</div>
+                            </div>
+                            </div>
+
+                           </div>
+                           </div>
+
+                           </div>
+    <script>
+        async function convertcurrency() {
+
+            const amountval=document.getElementById('amount').
+        }
+    </script>
+</body>
+</html>

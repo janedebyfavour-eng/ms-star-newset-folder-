@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currency Converter</title>
+<button class="darkModeToggle">dark mode</button>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1e5eff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 80px;
+    flex-wrap: wrap;
+}
+
+/* LEFT */
+.container {
+    max-width: 500px;
+}   
+
+.container h1 {
+    font-size: 55px;
+}
+
+.container p {
+    margin: 20px 0;
+}
+
+/* INPUT AREA */        
+.converter {
+    margin-top: 20px;
+}
+    
+.converter input,
+.converter select {
+    padding: 12px;
+    margin: 10px 5px 10px 0;
+    border-radius: 6px;
+    border: none;
+}
+
+.converter button {
+    padding: 12px 20px;
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.converter button:hover {
+    transform: translateY(-2px);
+}
+
+.result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* PROFILE */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* RIGHT */
+.container-two {
+    position: relative;
+    width: 500px;
+    height: 600px;
+}
+
+.left-img {
+    position: absolute;
+    width: 260px;
+    top: 120px;
+    left: 60px;
+    transform: rotate(-12deg);
+    z-index: 1;
+    transition: 0.4s;
+}
+
+.right-img {
+    position: absolute;
+    width: 260px;
+    top: 20px;
+    left: 200px;
+    transform: rotate(6deg);
+    z-index: 2;
+    transition: 0.4s;
+}
+
+.container-two:hover img {
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    body{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media(max-width:500px){
+    .container h1{
+        font-size: 32px;
+    }
+
+    .left-img,.right-img{
+        width: 180px;
+    }
+}
+.darkModeToggle {
+   position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LEFT -->
+<div class="container">
+    <h1>Currency Converter</h1>
+    <p>Convert currencies in real-time using live exchange rates</p>
+
+    <div class="converter">
+        <input type="number" id="amount" placeholder="Enter amount">
+
+        <br>
+
+        <select id="fromCurrency">
+            <option value="USD">USD</option>
+            <option value="NGN">NGN</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+        </select>
+
+        <select id="toCurrency">
+            <option value="NGN">NGN</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+        </select>
+
+        <br>
+
+        <button onclick="convertCurrency()">Convert</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="profile">
+        <img src="/assignment/JAVASCRIPT-PROJECT-CURRENCY-CONVETER-WEB-2WEEKS-TIME/asset/img/abdul-haseeb-m-m-kLx9tZ1u564-unsplash.jpg" alt="">
+        <div>
+            <p><strong>STARBOSS</strong></p>
+            <p>odikanmesoma3@email.com</p>
+        </div>
+    </div>
+</div>
+
+<!-- RIGHT -->
+<div class="container-two">
+    <img class="left-img" src="/assignment/JAVASCRIPT-PROJECT-CURRENCY-CONVETER-WEB-2WEEKS-TIME/asset/img/Rectangle (1).png">
+    <img class="right-img" src="/assignment/JAVASCRIPT-PROJECT-CURRENCY-CONVETER-WEB-2WEEKS-TIME/asset/img/Rectangle.png">
+</div>
+
+<script>
+async function convertCurrency() {
+    const amount = document.getElementById("amount").value;
+    const from = document.getElementById("fromCurrency").value;
+    const to = document.getElementById("toCurrency").value;
+
+    if(amount === ""){
+        alert("Enter amount");
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
+        const data = await response.json();
+
+        const rate = data.rates[to];
+        const result = amount * rate;
+
+        document.getElementById("result").innerText =
+            `${amount} ${from} = ${result.toFixed(2)} ${to}`;
+
+    } catch (error) {
+        document.getElementById("result").innerText = "Error fetching data";
+    }
+}
+
+
+
+</script>
+
+</body>
+</html>
+
